@@ -1,8 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import gridCreator from "./game-logic/grid";
 
 function App() {
+  gridCreator();
   return (
     <div className="App">
       <header className="App-header">
