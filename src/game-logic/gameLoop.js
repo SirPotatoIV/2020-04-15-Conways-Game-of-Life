@@ -57,9 +57,16 @@ export default function lifeRules() {
     }
 
     // Any alive cell touching two or three alive neighbours does nothing.
-    // if(currentCell.)
-  });
+    if (currentCell.isAlive && aliveNeighborCount === 2) {
+      currentCell.isAlive = true;
+    }
+    if (currentCell.isAlive && aliveNeighborCount === 3) {
+      currentCell.isAlive = true;
+    }
 
-  //
-  // -- cells to check
+    //
+    if (currentCell.isAlive === false && aliveNeighborCount === 3) {
+      currentCell.isAlive = true;
+    }
+  });
 }
