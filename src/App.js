@@ -1,10 +1,10 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import gridCreator from "./game-logic/grid";
+import gameMapCreator from "./game-logic/gameMap";
 
 function App() {
-  gridCreator();
+  gameMapCreator();
   return (
     <div className="App">
       <header className="App-header">
