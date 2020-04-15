@@ -20,5 +20,5 @@ export default function gameMapCreator() {
       };
     }
   }
-  // console.log(gameMap);
+  return gameMap;
 }
