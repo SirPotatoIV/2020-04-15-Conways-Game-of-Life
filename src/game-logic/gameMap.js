@@ -1,9 +1,7 @@
-export default function gameMapCreator() {
+export default function gameMapCreator(mapSize) {
   // object to store all the map tiles
   // -- each tile will represent a cell. Each cell will have an x coord, y coord, and a status of whether or not it is alive
   const gameMap = {};
-  // used to select how big you want the map to be
-  const mapSize = 5;
   // loop twice to create an x by y grid that is mapSize big
   for (let i = 0; i < mapSize; i++) {
     for (let j = 0; j < mapSize; j++) {
