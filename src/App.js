@@ -2,9 +2,10 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import gameMapCreator from "./game-logic/gameMap";
+import lifeRules from "./game-logic/lifeRules";
 
 function App() {
-  gameMapCreator();
+  lifeRules();
   return (
     <div className="App">
       <header className="App-header">
