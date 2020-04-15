@@ -17,19 +17,9 @@ export default function lifeRules() {
   // this will be grabbed in a loop, but for now it will just be set as one cell
 
   Object.keys(gameMap).forEach(function (currentCell) {
-    console.log(currentCell);
-    const x = currentCell.x;
-    const y = currentCell.y;
-    const cellMath = [-1, 0, 1];
-    for (let i = 0; i < cellMath.length; i++) {
-      const currentX = x + cellMath[i];
-      const xString = currentX.toString();
-      for (let j = 0; j < cellMath.length; j++) {
-        const currentY = y + cellMath[i];
-        const yString = currentY.toString();
-        const cellName = "x" + xString + "y" + yString;
-      }
-    }
+    const x = gameMap[currentCell].x;
+    const y = gameMap[currentCell].y;
+
     const noCell = {
       isAlive: false,
     };
@@ -47,29 +37,15 @@ export default function lifeRules() {
     neighborCells[6] = gameMap[`x${x}y${y + 1}`] || noCell;
     neighborCells[7] = gameMap[`x${x + 1}y${y + 1}`] || noCell;
 
+    // count if cells are alive
     let aliveNeighborCount = 0;
     // Alive count
-    // neighborCells.forEach(function (currentCell) {
-    //   // console.log(currentCell, neighborCells);
-    //   if (currentCell.isAlive) {
-    //     aliveNeighborCount++;
-    //   }
-    // });
+    neighborCells.forEach(function (currentCell) {
+      if (currentCell.isAlive) {
+        aliveNeighborCount++;
+      }
+    });
 
-    // // find neighbor alive count
-    // if (northCell.isAlive) {
-    //   aliveNeighborCount++;
-    // }
-    // if (southCell.isAlive) {
-    //   aliveNeighborCount++;
-    // }
-    // if (eastCell.isAlive) {
-    //   aliveNeighborCount++;
-    // }
-    // if (westCell.isAlive) {
-    //   aliveNeighborCount++;
-    // }
-    // console.log(aliveNeighborCount);
     // Any alive cell that is touching less than two alive neighbours dies.
     if (currentCell.isAlive && aliveNeighborCount < 2) {
       currentCell.isAlive = false;
