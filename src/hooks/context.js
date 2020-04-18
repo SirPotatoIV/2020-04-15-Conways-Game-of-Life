@@ -4,7 +4,7 @@ import gameMapCreator from "../game-logic/gameMap";
 export const GameContext = createContext();
 
 const state = {
-  map: gameMapCreator(5),
+  cells: gameMapCreator(3),
   interations: 0,
   speed: 0,
   zoom: 0,

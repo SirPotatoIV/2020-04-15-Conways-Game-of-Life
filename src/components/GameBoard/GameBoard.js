@@ -8,7 +8,14 @@ export default function GameBoard() {
   return (
     <div>
       <h1>This is a test</h1>
-      <Cell />
+      {Object.entries(state.cells).map(function ([cellName, cell]) {
+        console.log(cell);
+        return (
+          <div key={cellName} cell={cell}>
+            {cellName}
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -46,11 +46,11 @@ export default function lifeRules() {
         aliveNeighborCount++;
       }
     });
-    // console.log(currentCell.tileName, aliveNeighborCount);
+    // console.log(currentCell.cellName, aliveNeighborCount);
     // Any alive cell that is touching less than two alive neighbours dies.
     if (currentCell.isAlive && aliveNeighborCount < 2) {
       currentCell.isAlive = false;
-      // console.log(currentCell.tileName, "Less than 2 alive neighbours");
+      // console.log(currentCell.cellName, "Less than 2 alive neighbours");
     }
 
     // Any alive cell touching four or more alive neighbours dies.

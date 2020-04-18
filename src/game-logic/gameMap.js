@@ -6,10 +6,10 @@ export default function gameMapCreator(mapSize) {
   for (let i = 0; i < mapSize; i++) {
     for (let j = 0; j < mapSize; j++) {
       // creates a property for each map tile in the object gameMap
-      const tileName = `x${i}y${j}`;
+      const cellName = `x${i}y${j}`;
       // creates an object to be stored in the associated property in gameMap
-      gameMap[tileName] = {
-        tileName,
+      gameMap[cellName] = {
+        cellName,
         // x location
         x: i,
         // y location
