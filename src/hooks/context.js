@@ -1,9 +1,9 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import gameMapCreator from "../game-logic/gameMap";
 
 export const GameContext = createContext();
 
-const state = {
+const initialState = {
   cells: gameMapCreator(3),
   interations: 0,
   speed: 0,
@@ -11,7 +11,8 @@ const state = {
 };
 
 export default function GameProvider(props) {
-  const value = { state };
+  const [state, setState] = useState(initialState);
+  const value = { state, setState };
 
   return <GameContext.Provider value={value} {...props} />;
 }
