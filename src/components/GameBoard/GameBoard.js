@@ -6,30 +6,51 @@ export default function GameBoard() {
   const { state, setState } = useContext(GameContext);
   const styleSelector = useCallback((isAlive) => {
     if (isAlive) {
-      return "black";
+      return "blue";
     } else {
-      return "white";
+      return "red";
+    }
+  }, []);
+  const handleClick = useCallback((cell) => {
+    if (cell.isAlive) {
+      setState({
+        ...state,
+        cells: {
+          ...state.cells,
+          [cell.cellName]: { ...state.cells[cell.cellName], isAlive: false },
+        },
+      });
+    } else {
+      setState({
+        ...state,
+        cells: {
+          ...state.cells,
+          [cell.cellName]: { ...state.cells[cell.cellName], isAlive: true },
+        },
+      });
     }
   }, []);
   console.log(state);
+
   return (
     <div>
       <h1>This is a test</h1>
       {Object.entries(state.cells).map(function ([cellName, cell]) {
-        console.log(cell);
         const backgroundColor = styleSelector(cell.isAlive);
+        console.log(backgroundColor);
         return (
           <div
             style={{
-              backgroundColor: { backgroundColor },
+              color: { backgroundColor },
               border: "solid black 2px",
             }}
             key={cellName}
             onClick={() => {
               console.log(cell.isAlive);
+              handleClick(cell);
             }}
           >
-            {cellName}
+            {backgroundColor}
           </div>
         );
       })}
