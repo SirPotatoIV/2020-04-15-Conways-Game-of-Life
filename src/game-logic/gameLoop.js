@@ -7,18 +7,19 @@ function updateCells() {
   aliveCells.forEach(function (currentCell) {
     gameMap[currentCell].isAlive = true;
   });
+  // console.log(gameMap);
 }
 
 export default function lifeRules() {
   updateCells();
-  // console.log(gameMap);
   // to optimize later maybe only worry about alive cells?
   // Any alive cell that is touching less than two alive neighbours dies.
   // this will be grabbed in a loop, but for now it will just be set as one cell
 
-  Object.keys(gameMap).forEach(function (currentCell) {
-    const x = gameMap[currentCell].x;
-    const y = gameMap[currentCell].y;
+  Object.keys(gameMap).forEach(function (currentCellName) {
+    const currentCell = gameMap[currentCellName];
+    const x = currentCell.x;
+    const y = currentCell.y;
 
     const noCell = {
       isAlive: false,
@@ -45,10 +46,11 @@ export default function lifeRules() {
         aliveNeighborCount++;
       }
     });
-
+    // console.log(currentCell.tileName, aliveNeighborCount);
     // Any alive cell that is touching less than two alive neighbours dies.
     if (currentCell.isAlive && aliveNeighborCount < 2) {
       currentCell.isAlive = false;
+      // console.log(currentCell.tileName, "Less than 2 alive neighbours");
     }
 
     // Any alive cell touching four or more alive neighbours dies.
@@ -64,9 +66,10 @@ export default function lifeRules() {
       currentCell.isAlive = true;
     }
 
-    //
+    // Any dead cell touching exactly three alive neighbours becomes alive.
     if (currentCell.isAlive === false && aliveNeighborCount === 3) {
       currentCell.isAlive = true;
     }
   });
+  // console.log(gameMap);
 }

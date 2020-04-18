@@ -1,3 +1,7 @@
+Code is not complete. Have function to create cell map and created function to apply game logic for each cell in the map. Still need to create loop to go through the cells indefinitely.
+
+Current Deployed Link: https://mintbean-hackathon-jake-otoole-game-of-life.netlify.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
