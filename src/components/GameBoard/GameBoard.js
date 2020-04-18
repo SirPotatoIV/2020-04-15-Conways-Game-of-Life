@@ -37,11 +37,11 @@ export default function GameBoard() {
       <h1>This is a test</h1>
       {Object.entries(state.cells).map(function ([cellName, cell]) {
         const backgroundColor = styleSelector(cell.isAlive);
-        console.log(backgroundColor);
+        console.log(typeof backgroundColor);
         return (
           <div
             style={{
-              color: { backgroundColor },
+              color: backgroundColor,
               border: "solid black 2px",
             }}
             key={cellName}
